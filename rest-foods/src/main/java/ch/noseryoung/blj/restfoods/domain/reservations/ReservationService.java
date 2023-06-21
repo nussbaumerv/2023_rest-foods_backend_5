@@ -13,32 +13,32 @@ import java.util.List;
 @Service
 public class ReservationService {
     @Autowired
-    private final ReservationRepository repository;
+    private final ReservationRepository repo;
     public ReservationService(ReservationRepository repository){
-        this.repository = repository;
+        this.repo = repository;
     }
     public List<Reservation> getAllReservations(){
-        return repository.findAll();
+        return repo.findAll();
     }
 
     public Reservation getReservationById(int id) throws ReservationNotFoundException {
-        return repository.findById(id).orElseThrow(ReservationNotFoundException::new);
+        return repo.findById(id).orElseThrow(ReservationNotFoundException::new);
     }
 
-    public ResponseEntity<Reservation> createReservation(Reservation reservation){
-        repository.save(reservation);
-        return new ResponseEntity<>(reservation, HttpStatus.OK);
+    public ResponseEntity<Reservation> createReservation(Reservation res){
+        repo.save(res);
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
     public ResponseEntity<Reservation> updateReservation(Reservation reservationNew) throws ReservationNotFoundException {
         Reservation reservationOld = getReservationById(reservationNew.getReservationID());
         reservationOld.setCustomerID(reservationNew.getCustomerID());
-        reservationOld.setShippingMethodID(reservationNew.getShippingMethodID());
+        reservationOld.setDateID(reservationNew.getDateID());
         reservationOld.setReservationID(reservationNew.getReservationID());
-        repository.save(reservationOld);
+        repo.save(reservationOld);
         return new ResponseEntity<>(reservationNew, HttpStatus.OK);
     }
     public ResponseEntity<Reservation> deleteReservation(Reservation reservation){
-        repository.delete(reservation);
+        repo.delete(reservation);
         return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 

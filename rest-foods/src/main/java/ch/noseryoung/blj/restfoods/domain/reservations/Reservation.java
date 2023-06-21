@@ -17,22 +17,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Reservation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservationID;
 
     @Positive(message = "CostumerID Must be positive")
-    @Max(value = 2147483647, message = "CustomerID can't be that big")
     @NotNull(message = "CostumerID can't be null")
-    private Integer customerID;
+    private Integer reserverID;
 
-    @Max(value = 10, message = "There only 10 Shipping Methods available")
-    @PositiveOrZero(message = "shippingMethodID Must be positive or zero")
-    private Integer shippingMethodID;
-    @Max(value = 2147483647, message = "bookID can't be that big")
-    @Positive(message = "bookID Must be positive")
-    @NotNull(message = "bookID can't be null")
-    private Integer bookID;
+    private String dateAndTime;
+
+    @Positive(message = "table number Must be positive")
+    @NotNull(message = "table number can't be null")
+    private Integer tableNumber;
 
 
 }
