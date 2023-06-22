@@ -1,6 +1,6 @@
 package ch.noseryoung.blj.restfoods.domain.reservation;
 
-import ch.noseryoung.blj.restfoods.domain.menu.Exceptions.ReservationNotFoundException;
+import ch.noseryoung.blj.restfoods.domain.reservation.Exceptions.ReservationNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;

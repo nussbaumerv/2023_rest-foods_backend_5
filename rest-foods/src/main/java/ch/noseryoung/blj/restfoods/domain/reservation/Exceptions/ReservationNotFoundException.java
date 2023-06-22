@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.restfoods.domain.menu.Exceptions;
+package ch.noseryoung.blj.restfoods.domain.reservation.Exceptions;
 
 public class ReservationNotFoundException extends Exception{
     public ReservationNotFoundException(){
