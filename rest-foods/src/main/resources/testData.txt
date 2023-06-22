@@ -1,0 +1,15 @@
+    {
+        "name": "Maki Avocado",
+        "price": 20,
+        "vegetarian": true,
+        "type": "Sushi",
+        "imgUrl": "https://apeachyplate.com/wp-content/uploads/2022/07/sushi-maki-roll-square.jpg"
+    }
+
+    {
+        "name": "Maki Lachs",
+        "price": 22,
+        "vegetarian": false,
+        "type": "Sushi",
+        "imgUrl": "https://apeachyplate.com/wp-content/uploads/2022/07/sushi-maki-roll-square.jpg"
+    }

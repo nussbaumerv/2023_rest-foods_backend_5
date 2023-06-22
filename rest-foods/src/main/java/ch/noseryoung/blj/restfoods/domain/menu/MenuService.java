@@ -17,7 +17,7 @@ public class MenuService {
     public MenuService(MenuRepository repository){
         this.repository = repository;
     }
-    public List<Menu> getAllOrders(){
+    public List<Menu> getAllProducts(){
         return repository.findAll();
     }
 
@@ -25,11 +25,11 @@ public class MenuService {
         return repository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
 
-    public ResponseEntity<Menu> createOrder(Menu menu){
+    public ResponseEntity<Menu> createProduct(Menu menu){
         repository.save(menu);
         return new ResponseEntity<>(menu, HttpStatus.OK);
     }
-    public ResponseEntity<Menu> updateOrder(Menu menuNew) throws ProductNotFoundException {
+    public ResponseEntity<Menu> updateProduct(Menu menuNew) throws ProductNotFoundException {
         Menu menuOld = getProductById(menuNew.getMenuID());
         menuOld.setName(menuNew.getName());
         menuOld.setPrice(menuNew.getPrice());
@@ -37,7 +37,7 @@ public class MenuService {
         repository.save(menuOld);
         return new ResponseEntity<>(menuNew, HttpStatus.OK);
     }
-    public ResponseEntity<Menu> deleteOrder(Menu menu){
+    public ResponseEntity<Menu> deleteProduct(Menu menu){
         repository.delete(menu);
         return new ResponseEntity<>(menu, HttpStatus.OK);
     }
