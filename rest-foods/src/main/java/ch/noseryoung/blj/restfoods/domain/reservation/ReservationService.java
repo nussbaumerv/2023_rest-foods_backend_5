@@ -31,7 +31,7 @@ public class ReservationService {
     }
     public ResponseEntity<Reservation> updateReservation(Reservation reservationNew) throws ReservationNotFoundException {
         Reservation reservationOld = getReservationById(reservationNew.getReservationID());
-        reservationOld.setReserverName(reservationNew.getReserverName());
+        reservationOld.setReserverID(reservationNew.getReserverID());
         reservationOld.setDateAndTime(reservationNew.getDateAndTime());
         reservationOld.setReservationID(reservationNew.getReservationID());
         repo.save(reservationOld);
