@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.restfoods.domain.menu;
+package ch.noseryoung.blj.restfoods.domain.reservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

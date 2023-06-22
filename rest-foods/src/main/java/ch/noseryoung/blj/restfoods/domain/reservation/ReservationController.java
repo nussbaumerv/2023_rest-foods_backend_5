@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.restfoods.domain.menu;
+package ch.noseryoung.blj.restfoods.domain.reservation;
 
 import ch.noseryoung.blj.restfoods.domain.menu.Exceptions.ReservationNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;

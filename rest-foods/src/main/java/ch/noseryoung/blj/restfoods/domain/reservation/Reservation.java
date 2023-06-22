@@ -1,13 +1,11 @@
-package ch.noseryoung.blj.restfoods.domain.menu;
+package ch.noseryoung.blj.restfoods.domain.reservation;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +29,5 @@ public class Reservation {
     @Positive(message = "table number Must be positive")
     @NotNull(message = "table number can't be null")
     private Integer tableNumber;
-
 
 }
