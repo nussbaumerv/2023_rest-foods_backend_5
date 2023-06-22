@@ -11,7 +11,7 @@ import lombok.Setter;
 
 
 
-@Entity(name = "rest-food-db")
+@Entity(name = "reservations")
 @Getter
 @Setter
 public class Reservation {

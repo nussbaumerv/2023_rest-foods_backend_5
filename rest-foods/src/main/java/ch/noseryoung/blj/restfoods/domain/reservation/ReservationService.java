@@ -1,6 +1,6 @@
 package ch.noseryoung.blj.restfoods.domain.reservation;
 
-import ch.noseryoung.blj.restfoods.domain.menu.Exceptions.ReservationNotFoundException;
+import ch.noseryoung.blj.restfoods.domain.reservation.Exceptions.ReservationNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

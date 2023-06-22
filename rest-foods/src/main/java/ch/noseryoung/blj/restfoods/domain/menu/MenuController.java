@@ -79,7 +79,6 @@ public class MenuController {
                 }
             }
         }
-
         return filtertList;
     }
 
