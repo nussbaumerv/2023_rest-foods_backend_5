@@ -20,9 +20,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reservationID;
 
-    @Positive(message = "CostumerID Must be positive")
-    @NotNull(message = "CostumerID can't be null")
-    private Integer reserverID;
+    private String reserverName;
 
     private String dateAndTime;
 

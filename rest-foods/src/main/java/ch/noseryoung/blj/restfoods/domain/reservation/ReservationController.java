@@ -38,7 +38,7 @@ public class ReservationController {
     @Operation(summary = "Create reservation", description = "With this method you can create a reservation in the Database")
     @PostMapping("")
     public ResponseEntity<Reservation> addReservation(@Valid @RequestBody Reservation reservation) {
-        log.info("Creating new Reservation with customerID = " + reservation.getCustomerID() + " in DB");
+        log.info("Creating new Reservation with reserver's name = " + reservation.getReservationID() + " in DB");
         return service.createReservation(reservation);
     }
 
