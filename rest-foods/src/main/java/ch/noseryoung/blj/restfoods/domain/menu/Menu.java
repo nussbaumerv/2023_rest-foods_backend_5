@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-
 @Entity(name = "menu")
 @Getter
 @Setter
@@ -18,7 +17,7 @@ public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer menuID;
-
+    private Integer relevance;
     private String name;
 
     @Max(value = 2147483647, message = "Price can't be that high")
@@ -28,7 +27,7 @@ public class Menu {
     private boolean vegetarian;
 
     private String type;
-
+    private String description;
     private String img_url;
 
 }

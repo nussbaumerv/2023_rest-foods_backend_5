@@ -37,7 +37,14 @@ public class MenuController {
             Collections.sort(toSort, new Comparator<Menu>() {
                 @Override
                 public int compare(Menu m1, Menu m2) {
-                    if (attribute.equals("price")) {
+                    if(attribute.equals("relevance")){
+                        if (order.equals("asc")) {
+                            return Integer.compare(m1.getRelevance(), m2.getRelevance());
+                        } else {
+                            return Integer.compare(m2.getRelevance(), m1.getRelevance());
+                        }
+                    }
+                    else if (attribute.equals("price")) {
                         if (order.equals("asc")) {
                             return Integer.compare(m1.getPrice(), m2.getPrice());
                         } else {
@@ -68,10 +75,6 @@ public class MenuController {
 
             String arr[] = null;
             arr = filterStr.split(";");
-
-            for (int i = 0; i < arr.length; i++) {
-                log.info("ff " + arr[i]);
-            }
 
             List<Menu> filtertList = new ArrayList<>();
 

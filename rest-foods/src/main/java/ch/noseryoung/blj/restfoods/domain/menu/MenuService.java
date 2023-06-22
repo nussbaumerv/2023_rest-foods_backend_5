@@ -32,8 +32,11 @@ public class MenuService {
     public ResponseEntity<Menu> updateProduct(Menu menuNew) throws ProductNotFoundException {
         Menu menuOld = getProductById(menuNew.getMenuID());
         menuOld.setName(menuNew.getName());
+        menuOld.setRelevance(menuNew.getRelevance());
         menuOld.setPrice(menuNew.getPrice());
         menuOld.setVegetarian(menuNew.isVegetarian());
+        menuOld.setDescription(menuNew.getDescription());
+        menuOld.setImg_url(menuNew.getImg_url());
         repository.save(menuOld);
         return new ResponseEntity<>(menuNew, HttpStatus.OK);
     }
