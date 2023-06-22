@@ -1,15 +1,90 @@
+{
+        "menuID": 1,
+        "relevance": 70,
+        "name": "Edamame",
+        "price": 8,
+        "vegetarian": true,
+        "type": "Snack",
+        "description": "Warme, japanische Sojabohnen, leicht gesalzen",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/c937e229b6b94033db7081e413e76eb23df6a34a.webp"
+    },
     {
-        "name": "Maki Avocado",
+        "menuID": 6,
+        "relevance": 60,
+        "name": "Rainbow Roll Lachs, Mango Avocado",
+        "price": 26,
+        "vegetarian": false,
+        "type": "Sushi",
+        "description": "Lachs, Mango, Avocado",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/e66f2d79dec1624bf2f106983bf30ea4504ff00a.webp"
+    },
+    {
+        "menuID": 8,
+        "relevance": 45,
+        "name": "Ingwer Limonade",
+        "price": 4,
+        "vegetarian": true,
+        "type": "Getraenke",
+        "description": "BIO Limonade mit Zitrone und Ingwer, 5dl PET",
+        "img_url": "https://shopmanager.fwg-management.ch/media/cache/shopmanager_product_special/bc/7e/00c5edede8275c080cdb4295fda1.png"
+    },
+    {
+        "menuID": 9,
+        "relevance": 43,
+        "name": "Coca Cola",
+        "price": 4,
+        "vegetarian": true,
+        "type": "Getraenke",
+        "description": "PET, 5dl",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/ad6c6a3c3ee034726a0b7c6bd9b88f322702925d.webp"
+    },
+    {
+        "menuID": 2,
+        "relevance": 40,
+        "name": "Miso Soup",
         "price": 20,
         "vegetarian": true,
-        "type": "Sushi",
-        "imgUrl": "https://apeachyplate.com/wp-content/uploads/2022/07/sushi-maki-roll-square.jpg"
-    }
-
+        "type": "Suppe",
+        "description": "Miso Suppe mit Schweizer Tofu, Karotten, Sojasprossen, FrÃ¼hlingszwiebeln",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/77adee6d1587b49fd02b91d0502d89a916a503f5.webp"
+    },
     {
+        "menuID": 4,
+        "relevance": 40,
         "name": "Maki Lachs",
         "price": 22,
         "vegetarian": false,
         "type": "Sushi",
-        "imgUrl": "https://apeachyplate.com/wp-content/uploads/2022/07/sushi-maki-roll-square.jpg"
+        "description": "Lachs",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/bb10dda7951c76aa446728146cedf5222c18e316.webp"
+    },
+    {
+        "menuID": 5,
+        "relevance": 35,
+        "name": "Maki Avocado",
+        "price": 20,
+        "vegetarian": true,
+        "type": "Sushi",
+        "description": "Avocado",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/4e2a6236634b6b9af4d941ddce8792434ea6fedc.webp"
+    },
+    {
+        "menuID": 3,
+        "relevance": 30,
+        "name": "Poke Bowl",
+        "price": 25,
+        "vegetarian": false,
+        "type": "Salad",
+        "description": "Poke mit Sushireis, Gelbflossen Tuna, Gurke, Radiesli, Edamame, Mango, Wakame, Rettichsprossen und Wasabi-NÃ¼sse, mariniert mit Poke Sauce",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/e8ceb30d36fa0d00b2edd1bad261f2d00ba935b1.webp"
+    },
+    {
+        "menuID": 7,
+        "relevance": 30,
+        "name": "Nigiri Shake",
+        "price": 23,
+        "vegetarian": false,
+        "type": "Sushi",
+        "description": "Lachs",
+        "img_url": "https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/dbfe5c6e6172ca1d3b3235c6d1eeb2184b5c5b99.webp"
     }
