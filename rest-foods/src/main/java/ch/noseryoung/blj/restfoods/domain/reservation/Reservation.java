@@ -24,6 +24,7 @@ public class Reservation {
     @NotNull(message = "reserver's ID can't be null")
     private Integer reserverID;
 
+    @NotNull(message = "The date can't be null")
     private String dateAndTime;
 
     @Positive(message = "table number Must be positive")
