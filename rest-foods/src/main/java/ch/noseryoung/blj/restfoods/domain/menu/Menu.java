@@ -29,6 +29,6 @@ public class Menu {
 
     private String type;
 
-    private String imgUrl;
+    private String img_url;
 
 }

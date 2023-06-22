@@ -16,7 +16,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@RequestMapping("/order-services/v1/orders")
+@RequestMapping("/rest-foods/v1/menu")
 public class MenuController {
     private final MenuService service;
 
@@ -79,7 +79,6 @@ public class MenuController {
                 }
             }
         }
-
 
         return filtertList;
     }
