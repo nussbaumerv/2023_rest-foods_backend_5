@@ -32,54 +32,69 @@ public class MenuController {
     }
 
     public List<Menu> sort(List<Menu> toSort, String attribute, String order) {
-        Collections.sort(toSort, new Comparator<Menu>() {
-            @Override
-            public int compare(Menu m1, Menu m2) {
-                if (attribute.equals("price")) {
-                    if (order.equals("asc")) {
-                        return Integer.compare(m1.getPrice(), m2.getPrice());
-                    } else {
-                        return Integer.compare(m2.getPrice(), m1.getPrice());
-                    }
-                } else if (attribute.equals("name")) {
-                    if (order.equals("desc")) {
-                        return m2.getName().compareTo(m1.getName());
-                    } else {
-                        return m1.getName().compareTo(m2.getName());
-                    }
-                }
-                return 0;
-            }
-        });
 
+        try {
+            Collections.sort(toSort, new Comparator<Menu>() {
+                @Override
+                public int compare(Menu m1, Menu m2) {
+                    if(attribute.equals("relevance")){
+                        if (order.equals("asc")) {
+                            return Integer.compare(m1.getRelevance(), m2.getRelevance());
+                        } else {
+                            return Integer.compare(m2.getRelevance(), m1.getRelevance());
+                        }
+                    }
+                    else if (attribute.equals("price")) {
+                        if (order.equals("asc")) {
+                            return Integer.compare(m1.getPrice(), m2.getPrice());
+                        } else {
+                            return Integer.compare(m2.getPrice(), m1.getPrice());
+                        }
+                    } else if (attribute.equals("name")) {
+                        if (order.equals("desc")) {
+                            return m2.getName().compareTo(m1.getName());
+                        } else {
+                            return m1.getName().compareTo(m2.getName());
+                        }
+                    }
+                    return 0;
+                }
+            });
+
+        } catch (Exception e) {
+            log.error("Invalid Arguments");
+        }
         return toSort;
+
     }
 
     public List<Menu> filter(List<Menu> toFilter, String filterStr) {
 
-        filterStr = filterStr.toLowerCase();
+        try {
+            filterStr = filterStr.toLowerCase();
 
-        String arr[] = null;
-        arr = filterStr.split(";");
+            String arr[] = null;
+            arr = filterStr.split(";");
 
-        for (int i = 0; i < arr.length; i++) {
-            log.info("ff " + arr[i]);
-        }
+            List<Menu> filtertList = new ArrayList<>();
 
-        List<Menu> filtertList = new ArrayList<>();
-
-        for(int i= 0; i< toFilter.size(); i++){
-            if(arr[0].equals("null") || toFilter.get(i).getName().toLowerCase().contains(arr[0])){
-                if(arr[1].equals("null") || String.valueOf(toFilter.get(i).getPrice()).toLowerCase().equals(arr[1])){
-                    if(arr[2].equals("null") || String.valueOf(toFilter.get(i).isVegetarian()).toLowerCase().equals(arr[2])){
-                        if(arr[3].equals("null") || toFilter.get(i).getType().toLowerCase().contains(arr[3])){
-                            filtertList.add(toFilter.get(i));
+            for (int i = 0; i < toFilter.size(); i++) {
+                if (arr[0].equals("null") || toFilter.get(i).getName().toLowerCase().contains(arr[0])) {
+                    if (arr[1].equals("null") || String.valueOf(toFilter.get(i).getPrice()).toLowerCase().equals(arr[1])) {
+                        if (arr[2].equals("null") || String.valueOf(toFilter.get(i).isVegetarian()).toLowerCase().equals(arr[2])) {
+                            if (arr[3].equals("null") || toFilter.get(i).getType().toLowerCase().contains(arr[3])) {
+                                filtertList.add(toFilter.get(i));
+                            }
                         }
                     }
                 }
             }
+
+            return filtertList;
+        } catch (Exception e) {
+            log.error("Invalid Arguments");
+            return toFilter;
         }
-        return filtertList;
     }
 
     @Operation(summary = "Fetch all Products", description = "With this method you can fetch all the Products from the Database")
