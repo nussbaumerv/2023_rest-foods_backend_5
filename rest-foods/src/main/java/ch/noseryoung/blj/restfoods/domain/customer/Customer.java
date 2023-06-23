@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.restfoods.domain.customers;
+package ch.noseryoung.blj.restfoods.domain.customer;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

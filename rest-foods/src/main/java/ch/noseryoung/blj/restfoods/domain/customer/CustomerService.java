@@ -1,6 +1,6 @@
-package ch.noseryoung.blj.restfoods.domain.customers;
+package ch.noseryoung.blj.restfoods.domain.customer;
 
-import ch.noseryoung.blj.restfoods.domain.customers.Exceptions.CustomerNotFoundException;
+import ch.noseryoung.blj.restfoods.domain.customer.Exceptions.CustomerNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.restfoods.domain.customers.Exceptions;
+package ch.noseryoung.blj.restfoods.domain.customer.Exceptions;
 
 public class CustomerNotFoundException extends Exception{
     public CustomerNotFoundException(){
