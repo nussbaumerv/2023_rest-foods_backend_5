@@ -13,7 +13,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@RequestMapping("/reservation-services/v1/reservations")
+@RequestMapping("/rest-foods/v1/reservations")
 public class ReservationController {
     private final ReservationService service;
 
