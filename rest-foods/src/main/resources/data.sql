@@ -14,7 +14,7 @@ INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url
 VALUES ('Maki Avocado', 35, 20, true, 'Sushi', 'Avocado', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/4e2a6236634b6b9af4d941ddce8792434ea6fedc.webp');
 
 INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url)
-VALUES ('Rainbow Roll Lachs, Mango Avocado', 60, 26, false, 'Sushi', 'Lachs, Mango, Avocado', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/e66f2d79dec1624bf2f106983bf30ea4504ff00a.webp');
+VALUES ('Rainbow Roll', 60, 26, false, 'Sushi', 'Lachs, Mango, Avocado', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/e66f2d79dec1624bf2f106983bf30ea4504ff00a.webp');
 
 INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url)
 VALUES ('Nigiri Shake', 30, 23, false, 'Sushi', 'Lachs', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/dbfe5c6e6172ca1d3b3235c6d1eeb2184b5c5b99.webp');
