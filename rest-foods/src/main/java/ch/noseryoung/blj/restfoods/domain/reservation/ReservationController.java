@@ -14,6 +14,7 @@ import java.util.List;
 @Log4j2
 @RestController
 @RequestMapping("/rest-foods/v1/reservations")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ReservationController {
     private final ReservationService service;
 

@@ -14,6 +14,7 @@ import java.util.List;
 @Log4j2
 @RestController
 @RequestMapping("/customer-services/v1/customers")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CustomerController {
     private final CustomerService service;
 
