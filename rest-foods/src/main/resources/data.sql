@@ -20,7 +20,7 @@ INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url
 VALUES ('Nigiri Shake', 30, 23, false, 'Sushi', 'Lachs', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/dbfe5c6e6172ca1d3b3235c6d1eeb2184b5c5b99.webp');
 
 INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url)
-VALUES ('Ingwer Limonade', 45, 4, true, 'Getraenke', 'BIO Limonade mit Zitrone und Ingwer, 5dl PET', 'https://shopmanager.fwg-management.ch/media/cache/shopmanager_product_special/bc/7e/00c5edede8275c080cdb4295fda1.png');
+VALUES ('Ingwer Limonade', 45, 4, true, 'drink', 'BIO Limonade mit Zitrone und Ingwer, 5dl PET', 'https://shopmanager.fwg-management.ch/media/cache/shopmanager_product_special/bc/7e/00c5edede8275c080cdb4295fda1.png');
 
 INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url)
-VALUES ('Coca Cola', 43, 4, true, 'Getraenke', 'PET, 5dl', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/ad6c6a3c3ee034726a0b7c6bd9b88f322702925d.webp');
+VALUES ('Coca Cola', 43, 4, true, 'drink', 'PET, 5dl', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/ad6c6a3c3ee034726a0b7c6bd9b88f322702925d.webp');
