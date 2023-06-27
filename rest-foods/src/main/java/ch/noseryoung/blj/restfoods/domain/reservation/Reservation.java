@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 
 
 @Entity(name = "reservations")
@@ -25,7 +26,7 @@ public class Reservation {
     private Integer reserverID;
 
     @NotNull(message = "The date can't be null")
-    private String dateAndTime;
+    private Date dateAndTime;
 
     @Positive(message = "table number Must be positive")
     @NotNull(message = "table number can't be null")
