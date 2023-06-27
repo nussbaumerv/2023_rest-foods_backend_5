@@ -14,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Menu {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer menuID;
