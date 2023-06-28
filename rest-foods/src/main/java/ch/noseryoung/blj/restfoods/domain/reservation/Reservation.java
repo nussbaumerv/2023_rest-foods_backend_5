@@ -26,10 +26,10 @@ public class Reservation {
     private String lastName;
 
     @NotNull(message = "Tne number of visitors must be specified")
-    private Integer visitorCount;
+    private String visitorCount;
 
     @NotNull(message = "The date must be specified")
-    private Date date;
+    private String date;
 
     @NotNull(message = "Time must be specified")
     private String time;
