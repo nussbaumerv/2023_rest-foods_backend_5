@@ -25,9 +25,9 @@ public class MenuService {
         return repository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
 
-    public ResponseEntity<Menu> createProduct(Menu menu){
-        repository.save(menu);
-        return new ResponseEntity<>(menu, HttpStatus.OK);
+    public ResponseEntity<Menu> createProduct(Menu newMenu){
+        repository.save(newMenu);
+        return new ResponseEntity<>(newMenu, HttpStatus.OK);
     }
     public ResponseEntity<Menu> updateProduct(Menu menuNew) throws ProductNotFoundException {
         Menu menuOld = getProductById(menuNew.getMenuID());
