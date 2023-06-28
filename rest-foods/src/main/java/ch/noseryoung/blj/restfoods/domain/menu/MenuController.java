@@ -1,4 +1,8 @@
 package ch.noseryoung.blj.restfoods.domain.menu;
+/** Represents an employee.
+ * @author Valentin Nussbaumer
+ * @version 1.0
+*/
 
 import ch.noseryoung.blj.restfoods.domain.menu.Exceptions.ProductNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,6 +29,11 @@ public class MenuController {
         this.service = service;
     }
 
+    /**
+     * Fetches all products from the database.
+     *
+     * @return ResponseEntity containing the list of products
+     */
     @Operation(summary = "Fetch all Products", description = "With this method you can fetch all the Products from the Database")
     @GetMapping("")
     public ResponseEntity<List<Menu>> getMenu() {
@@ -32,6 +41,14 @@ public class MenuController {
         return ResponseEntity.ok().body(service.getAllProducts());
     }
 
+    /**
+     * Sorts a list of menus based on the given attribute and order.
+     *
+     * @param toSort    the list of menus to be sorted
+     * @param attribute the attribute to sort by (e.g., "relevance", "price", "name")
+     * @param order     the sort order ("asc" for ascending, "desc" for descending)
+     * @return the sorted list of menus
+     */
     public List<Menu> sort(List<Menu> toSort, String attribute, String order) {
 
         try {
@@ -69,6 +86,13 @@ public class MenuController {
 
     }
 
+    /**
+     * Filters a list of menus based on the given filter string.
+     *
+     * @param toFilter   the list of menus to be filtered
+     * @param filterStr  the filter string to apply
+     * @return the filtered list of menus
+     */
     public List<Menu> filter(List<Menu> toFilter, String filterStr) {
 
         try {
@@ -98,6 +122,14 @@ public class MenuController {
         }
     }
 
+    /**
+     * Fetches all products from the database, sorted and filtered based on the given parameters.
+     *
+     * @param attribute the attribute to sort by (e.g., "relevance", "price", "name")
+     * @param order     the sort order ("asc" for ascending, "desc" for descending)
+     * @param filter    the filter string to apply
+     * @return ResponseEntity containing the sorted and filtered list of products
+     */
     @Operation(summary = "Fetch all Products", description = "With this method you can fetch all the Products from the Database")
     @GetMapping("/advanced")
     public ResponseEntity<List<Menu>> getMenuSorted(@Valid @RequestParam("attribute") String attribute,
@@ -111,7 +143,13 @@ public class MenuController {
         return ResponseEntity.ok().body(listSorted);
     }
 
-
+    /**
+     * Fetches a specific product from the database based on the given ID.
+     *
+     * @param productId the ID of the product to fetch
+     * @return ResponseEntity containing the product
+     * @throws ProductNotFoundException if the product is not found
+     */
     @Operation(summary = "Fetch Product with specific ID", description = "With this method you can fetch a specific Product from the Database with the given ID")
     @GetMapping("/{productId}")
     public ResponseEntity<Menu> getProductByIndex(@Valid @PathVariable("productId") Integer productId) throws ProductNotFoundException {
@@ -119,6 +157,12 @@ public class MenuController {
         return ResponseEntity.ok().body(service.getProductById(productId));
     }
 
+    /**
+     * Creates a new product in the database.
+     *
+     * @param menu the product to be created
+     * @return ResponseEntity containing the created product
+     */
     @Operation(summary = "Create Product", description = "With this method you can create a Product in the Database")
     @PostMapping("")
     public ResponseEntity<Menu> addProduct(@Valid @RequestBody Menu menu) {
@@ -126,6 +170,12 @@ public class MenuController {
         return service.createProduct(menu);
     }
 
+    /**
+     * Deletes a specific product from the database.
+     *
+     * @param menu the product to be deleted
+     * @return ResponseEntity containing the deleted product
+     */
     @Operation(summary = "Delete Product", description = "With this method you can delete a specific Product in the Database")
     @DeleteMapping("")
     public ResponseEntity<Menu> dropProduct(@Valid @RequestBody Menu menu) {
@@ -133,6 +183,13 @@ public class MenuController {
         return service.deleteProduct(menu);
     }
 
+    /**
+     * Updates a specific product in the database.
+     *
+     * @param menu the updated product
+     * @return ResponseEntity containing the updated product
+     * @throws ProductNotFoundException if the product is not found
+     */
     @Operation(summary = "Update Product", description = "With this method you can update a specific Product in the Database")
     @PutMapping("")
     public ResponseEntity<Menu> updateProdcut(@Valid @RequestBody Menu menu) throws ProductNotFoundException {
@@ -140,6 +197,13 @@ public class MenuController {
         return service.updateProduct(menu);
     }
 
+    /**
+     * Deletes a specific product from the database based on the given ID.
+     *
+     * @param productId the ID of the product to be deleted
+     * @return ResponseEntity containing the deleted product
+     * @throws ProductNotFoundException if the product is not found
+     */
     @Operation(summary = "Delete Product with specific ID", description = "With this method you can delete a specific Product from the Database with the given ID")
     @DeleteMapping("/{productId}")
     public ResponseEntity<Menu> dropProductById(@Valid @PathVariable("productId") Integer productId) throws ProductNotFoundException {
@@ -147,16 +211,27 @@ public class MenuController {
         return service.deleteProduct(service.getProductById(productId));
     }
 
+    /**
+     * Exception handler for handling ProductNotFoundException.
+     *
+     * @param e the ProductNotFoundException
+     * @return ResponseEntity containing the error message
+     */
     @ExceptionHandler(ProductNotFoundException.class)
     public ResponseEntity<String> handleProductNotFoundException(ProductNotFoundException e) {
         log.info(e.getMessage());
         return ResponseEntity.status(404).body(e.getMessage());
     }
 
+    /**
+     * Exception handler for handling MethodArgumentNotValidException.
+     *
+     * @param e the MethodArgumentNotValidException
+     * @return ResponseEntity containing the error message
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         log.info(e.getFieldError().getDefaultMessage());
         return ResponseEntity.status(400).body(e.getFieldError().getDefaultMessage());
     }
-
 }
