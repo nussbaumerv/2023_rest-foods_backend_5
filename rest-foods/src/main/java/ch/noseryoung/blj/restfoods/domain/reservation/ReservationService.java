@@ -31,8 +31,13 @@ public class ReservationService {
     }
     public ResponseEntity<Reservation> updateReservation(Reservation reservationNew) throws ReservationNotFoundException {
         Reservation reservationOld = getReservationById(reservationNew.getReservationID());
-        reservationOld.setDate(reservationNew.getDate());
         reservationOld.setReservationID(reservationNew.getReservationID());
+        reservationOld.setFirstName(reservationNew.getFirstName());
+        reservationOld.setLastName(reservationNew.getLastName());
+        reservationOld.setVisitorCount(reservationNew.getVisitorCount());
+        reservationOld.setDate(reservationNew.getDate());
+        reservationOld.setTime(reservationNew.getTime());
+        reservationOld.setPhoneNumber(reservationNew.getPhoneNumber());
         repo.save(reservationOld);
         return new ResponseEntity<>(reservationNew, HttpStatus.OK);
     }
