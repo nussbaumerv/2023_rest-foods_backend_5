@@ -25,21 +25,21 @@ public class ReservationService {
         return repo.findById(id).orElseThrow(ReservationNotFoundException::new);
     }
 
-    public ResponseEntity<Reservation> createReservation(Reservation res){
-        repo.save(res);
-        return new ResponseEntity<>(res, HttpStatus.OK);
-    }
-    public ResponseEntity<Reservation> updateReservation(Reservation reservationData) throws ReservationNotFoundException {
-        Reservation newReservation = getReservationById(reservationData.getReservationID());
-        newReservation.setReservationID(reservationData.getReservationID());
-        newReservation.setFirstName(reservationData.getFirstName());
-        newReservation.setLastName(reservationData.getLastName());
-        newReservation.setVisitorCount(reservationData.getVisitorCount());
-        newReservation.setDate(reservationData.getDate());
-        newReservation.setTime(reservationData.getTime());
-        newReservation.setPhoneNumber(reservationData.getPhoneNumber());
+    public ResponseEntity<Reservation> createReservation(Reservation newReservation){
         repo.save(newReservation);
-        return new ResponseEntity<>(reservationData, HttpStatus.OK);
+        return new ResponseEntity<>(newReservation, HttpStatus.OK);
+    }
+    public ResponseEntity<Reservation> updateReservation(Reservation newReservation) throws ReservationNotFoundException {
+        Reservation oldReservation = getReservationById(newReservation.getReservationID());
+        oldReservation.setReservationID(newReservation.getReservationID());
+        oldReservation.setFirstName(newReservation.getFirstName());
+        oldReservation.setLastName(newReservation.getLastName());
+        oldReservation.setVisitorCount(newReservation.getVisitorCount());
+        oldReservation.setDate(newReservation.getDate());
+        oldReservation.setTime(newReservation.getTime());
+        oldReservation.setPhoneNumber(newReservation.getPhoneNumber());
+        repo.save(oldReservation);
+        return new ResponseEntity<>(newReservation, HttpStatus.OK);
     }
     public ResponseEntity<Reservation> deleteReservation(Reservation reservation){
         repo.delete(reservation);
