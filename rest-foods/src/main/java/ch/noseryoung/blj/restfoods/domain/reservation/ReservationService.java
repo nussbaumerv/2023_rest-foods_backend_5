@@ -29,17 +29,17 @@ public class ReservationService {
         repo.save(res);
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
-    public ResponseEntity<Reservation> updateReservation(Reservation reservationNew) throws ReservationNotFoundException {
-        Reservation reservationOld = getReservationById(reservationNew.getReservationID());
-        reservationOld.setReservationID(reservationNew.getReservationID());
-        reservationOld.setFirstName(reservationNew.getFirstName());
-        reservationOld.setLastName(reservationNew.getLastName());
-        reservationOld.setVisitorCount(reservationNew.getVisitorCount());
-        reservationOld.setDate(reservationNew.getDate());
-        reservationOld.setTime(reservationNew.getTime());
-        reservationOld.setPhoneNumber(reservationNew.getPhoneNumber());
-        repo.save(reservationOld);
-        return new ResponseEntity<>(reservationNew, HttpStatus.OK);
+    public ResponseEntity<Reservation> updateReservation(Reservation reservationData) throws ReservationNotFoundException {
+        Reservation newReservation = getReservationById(reservationData.getReservationID());
+        newReservation.setReservationID(reservationData.getReservationID());
+        newReservation.setFirstName(reservationData.getFirstName());
+        newReservation.setLastName(reservationData.getLastName());
+        newReservation.setVisitorCount(reservationData.getVisitorCount());
+        newReservation.setDate(reservationData.getDate());
+        newReservation.setTime(reservationData.getTime());
+        newReservation.setPhoneNumber(reservationData.getPhoneNumber());
+        repo.save(newReservation);
+        return new ResponseEntity<>(reservationData, HttpStatus.OK);
     }
     public ResponseEntity<Reservation> deleteReservation(Reservation reservation){
         repo.delete(reservation);
