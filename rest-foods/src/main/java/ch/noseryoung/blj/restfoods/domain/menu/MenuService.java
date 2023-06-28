@@ -1,4 +1,8 @@
 package ch.noseryoung.blj.restfoods.domain.menu;
+/** Represents an employee.
+ * @author Valentin Nussbaumer
+ * @version 1.0
+ */
 
 import ch.noseryoung.blj.restfoods.domain.menu.Exceptions.ProductNotFoundException;
 import lombok.extern.log4j.Log4j2;
@@ -14,23 +18,57 @@ import java.util.List;
 public class MenuService {
     @Autowired
     private final MenuRepository repository;
-    public MenuService(MenuRepository repository){
+
+    /**
+     * Constructs a new MenuService with the specified repository.
+     *
+     * @param repository The repository to use for accessing menu product data.
+     */
+    public MenuService(MenuRepository repository) {
         this.repository = repository;
     }
-    public List<Menu> getAllProducts(){
+
+    /**
+     * Retrieves all menu products.
+     *
+     * @return A list of all menu products.
+     */
+    public List<Menu> getAllProducts() {
         return repository.findAll();
     }
 
+    /**
+     * Retrieves a menu product by its ID.
+     *
+     * @param id The ID of the menu product to retrieve.
+     * @return The menu product with the specified ID.
+     * @throws ProductNotFoundException If the menu product with the specified ID is not found.
+     */
     public Menu getProductById(int id) throws ProductNotFoundException {
         return repository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
 
-    public ResponseEntity<Menu> createProduct(Menu newMenu){
+    /**
+     * Creates a new menu product.
+     *
+     * @param newMenu The menu product to create.
+     * @return The created menu product.
+     */
+    public ResponseEntity<Menu> createProduct(Menu newMenu) {
         repository.save(newMenu);
         return new ResponseEntity<>(newMenu, HttpStatus.OK);
     }
+
+    /**
+     * Updates an existing menu product.
+     *
+     * @param menuNew The updated menu product.
+     * @return The updated menu product.
+     * @throws ProductNotFoundException If the menu product with the specified ID is not found.
+     */
     public ResponseEntity<Menu> updateProduct(Menu menuNew) throws ProductNotFoundException {
         Menu menuOld = getProductById(menuNew.getMenuID());
+        // Update the fields of the old menu product with the new menu product's values
         menuOld.setName(menuNew.getName());
         menuOld.setRelevance(menuNew.getRelevance());
         menuOld.setPrice(menuNew.getPrice());
@@ -40,9 +78,15 @@ public class MenuService {
         repository.save(menuOld);
         return new ResponseEntity<>(menuNew, HttpStatus.OK);
     }
-    public ResponseEntity<Menu> deleteProduct(Menu menu){
+
+    /**
+     * Deletes a menu product.
+     *
+     * @param menu The menu product to delete.
+     * @return The deleted menu product.
+     */
+    public ResponseEntity<Menu> deleteProduct(Menu menu) {
         repository.delete(menu);
         return new ResponseEntity<>(menu, HttpStatus.OK);
     }
-
 }
