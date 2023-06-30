@@ -34,5 +34,6 @@ public class Reservation {
     @NotNull(message = "Time must be specified")
     private String time;
 
+    @NotNull(message = "The phone number must be specified")
     private String phoneNumber;
 }
