@@ -1,4 +1,4 @@
-# 2023_rest-foods_backend_5
+# REST-Food Backend
 A restaurant Website from Loris, Yan, Ruben and Valentin developed @NoserYoung.
 ## Dokumentation
 - Github: https://github.com/nussbaumerv/2023_rest-foods_backend_5/blob/main/Dokumentation.pdf
