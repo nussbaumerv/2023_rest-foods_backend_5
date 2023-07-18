@@ -20,7 +20,7 @@ import java.util.List;
 
 @Log4j2
 @RestController
-@RequestMapping("/rest-foods/v1/menu")
+@RequestMapping("/rest-foods/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class MenuController {
     private final MenuService service;
@@ -35,7 +35,7 @@ public class MenuController {
      * @return ResponseEntity containing the list of products
      */
     @Operation(summary = "Fetch all Products", description = "With this method you can fetch all the Products from the Database")
-    @GetMapping("")
+    @GetMapping("/menu")
     public ResponseEntity<List<Menu>> getMenu() {
         log.info("Fetching all products from DB");
         return ResponseEntity.ok().body(service.getAllProducts());
@@ -146,15 +146,15 @@ public class MenuController {
     /**
      * Fetches a specific product from the database based on the given ID.
      *
-     * @param productId the ID of the product to fetch
+     * @param productName the Name of the product to fetch
      * @return ResponseEntity containing the product
      * @throws ProductNotFoundException if the product is not found
      */
     @Operation(summary = "Fetch Product with specific ID", description = "With this method you can fetch a specific Product from the Database with the given ID")
-    @GetMapping("/{productId}")
-    public ResponseEntity<Menu> getProductByIndex(@Valid @PathVariable("productId") Integer productId) throws ProductNotFoundException {
-        log.info("Fetching a specific Product with productID = " + productId + " from DB");
-        return ResponseEntity.ok().body(service.getProductById(productId));
+    @GetMapping("/menuspecial/{productName}")
+    public ResponseEntity<Menu> getProductByIndex(@Valid @PathVariable("productName") String productName) throws ProductNotFoundException {
+        log.info("Fetching a specific Product with productID = " + productName + " from DB");
+        return ResponseEntity.ok().body(service.getProductByName(productName));
     }
 
     /**
@@ -164,9 +164,9 @@ public class MenuController {
      * @return ResponseEntity containing the created product
      */
     @Operation(summary = "Create Product", description = "With this method you can create a Product in the Database")
-    @PostMapping("")
+    @PostMapping("menuspecial/create")
     public ResponseEntity<Menu> addProduct(@Valid @RequestBody Menu menu) {
-        log.info("Creating new Product with productID = " + menu.getMenuID() + " in DB");
+        log.info("Creating new Product with productName = " + menu.getName() + " in DB");
         return service.createProduct(menu);
     }
 
@@ -177,9 +177,9 @@ public class MenuController {
      * @return ResponseEntity containing the deleted product
      */
     @Operation(summary = "Delete Product", description = "With this method you can delete a specific Product in the Database")
-    @DeleteMapping("")
+    @DeleteMapping("/menuspecial/{foodName}")
     public ResponseEntity<Menu> dropProduct(@Valid @RequestBody Menu menu) {
-        log.info("Deleting Product with productID = " + menu.getMenuID() + " in DB");
+        log.info("Deleting Product with productName = " + menu.getName() + " in DB");
         return service.deleteProduct(menu);
     }
 
@@ -191,24 +191,24 @@ public class MenuController {
      * @throws ProductNotFoundException if the product is not found
      */
     @Operation(summary = "Update Product", description = "With this method you can update a specific Product in the Database")
-    @PutMapping("")
+    @PutMapping("/menuspecial/{productName}")
     public ResponseEntity<Menu> updateProdcut(@Valid @RequestBody Menu menu) throws ProductNotFoundException {
-        log.info("Updating a Product with productID = " + menu.getMenuID() + " in DB");
+        log.info("Updating a Product with productName = " + menu.getName() + " in DB");
         return service.updateProduct(menu);
     }
 
     /**
      * Deletes a specific product from the database based on the given ID.
      *
-     * @param productId the ID of the product to be deleted
+     * @param productName the Name of the product to be deleted
      * @return ResponseEntity containing the deleted product
      * @throws ProductNotFoundException if the product is not found
      */
-    @Operation(summary = "Delete Product with specific ID", description = "With this method you can delete a specific Product from the Database with the given ID")
-    @DeleteMapping("/{productId}")
-    public ResponseEntity<Menu> dropProductById(@Valid @PathVariable("productId") Integer productId) throws ProductNotFoundException {
-        log.info("Deleting Product with productID = " + productId + " in DB from the given ID");
-        return service.deleteProduct(service.getProductById(productId));
+    @Operation(summary = "Delete Product with specific Name", description = "With this method you can delete a specific Product from the Database with the given ID")
+    @DeleteMapping("menuspecial/{productName}")
+    public ResponseEntity<Menu> dropProductByName(@Valid @PathVariable("productName") String productName) throws ProductNotFoundException {
+        log.info("Deleting Product with productName = " + productName + " in DB from the given Name");
+        return service.deleteProduct(service.getProductByName(productName));
     }
 
     /**

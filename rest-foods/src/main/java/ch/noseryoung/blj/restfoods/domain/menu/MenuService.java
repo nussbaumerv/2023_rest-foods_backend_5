@@ -40,12 +40,12 @@ public class MenuService {
     /**
      * Retrieves a menu product by its ID.
      *
-     * @param id The ID of the menu product to retrieve.
+     * @param name The ID of the menu product to retrieve.
      * @return The menu product with the specified ID.
      * @throws ProductNotFoundException If the menu product with the specified ID is not found.
      */
-    public Menu getProductById(int id) throws ProductNotFoundException {
-        return repository.findById(id).orElseThrow(ProductNotFoundException::new);
+    public Menu getProductByName(String name) throws ProductNotFoundException {
+        return repository.findByName(name).orElseThrow(ProductNotFoundException::new);
     }
 
     /**
@@ -67,7 +67,7 @@ public class MenuService {
      * @throws ProductNotFoundException If the menu product with the specified ID is not found.
      */
     public ResponseEntity<Menu> updateProduct(Menu menuNew) throws ProductNotFoundException {
-        Menu menuOld = getProductById(menuNew.getMenuID());
+        Menu menuOld = getProductByName(menuNew.getName());
         // Update the fields of the old menu product with the new menu product's values
         menuOld.setName(menuNew.getName());
         menuOld.setRelevance(menuNew.getRelevance());
