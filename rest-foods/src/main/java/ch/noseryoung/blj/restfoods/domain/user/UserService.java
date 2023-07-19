@@ -38,7 +38,7 @@ public class UserService implements UserDetailsService {
 
         @Override
         public String getUsername() {
-            return user.getUseremail();
+            return user.getUserEmail();
         }
 
         @Override

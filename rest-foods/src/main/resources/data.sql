@@ -24,3 +24,22 @@ VALUES ('Ingwer Limonade', 45, 4, true, 'drink', 'BIO Limonade mit Zitrone und I
 
 INSERT INTO menu (name, relevance, price, vegetarian, type, description, img_url)
 VALUES ('Coca Cola', 43, 4, true, 'drink', 'PET, 5dl', 'https://familiewiesnergastronomie.rokka.io/shopmanager_product_mood/ad6c6a3c3ee034726a0b7c6bd9b88f322702925d.webp');
+
+INSERT INTO roles (role_name)
+VALUES ('ADMIN'),
+       ('USER');
+
+INSERT INTO users (useremail, password, user_role)
+VALUES ('loris.dileo@gmx.ch', '1234', 1);
+
+INSERT INTO authority (authority_name)
+VALUES ('CREATE'),
+       ('READ'),
+       ('UPDATE'),
+       ('DELETE');
+
+INSERT INTO roles_authorities (role_id, authority_id)
+VALUES (1, 1),
+       (1, 2),
+       (1, 3),
+       (1, 4);
